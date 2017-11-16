@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "642809326667",
+    "firebase_url": "https://valentino-rendezvous.firebaseio.com",
+    "project_id": "valentino-rendezvous",
+    "storage_bucket": "valentino-rendezvous.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642809326667:android:99eb1b22cf4c58c9",
+        "android_client_info": {
+          "package_name": "com.example.valentino.rendezvous"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642809326667-g0dqbuuqd87aga5un93hnu7a69pffh42.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChNNC8TiM9Qaux2KT045Npp3fEINiBPhk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
