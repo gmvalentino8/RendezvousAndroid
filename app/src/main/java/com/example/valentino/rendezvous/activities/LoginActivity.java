@@ -1,4 +1,4 @@
-package com.example.valentino.rendezvous;
+package com.example.valentino.rendezvous.activities;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -7,19 +7,19 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.valentino.rendezvous.R;
+import com.example.valentino.rendezvous.models.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -27,11 +27,12 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
 import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -40,19 +41,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginManager loginManager;
     private CallbackManager callbackManager;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference mDatabase;
     private Button fbLoginButton;
 
     @Override
     public void onClick(View view) {
-	loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile"));
+	loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "user_friends"));
     }
 
     @Override
     public void onStart() {
 	super.onStart();
 	// Check if user is signed in (non-null) and update UI accordingly.
-	FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-	if (currentUser != null) {
+	if (AccessToken.getCurrentAccessToken() != null && firebaseAuth.getCurrentUser() != null) {
 	    goToMainActivity();
 	}
     }
@@ -100,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	startActivity(intent);
     }
 
-    private void handleFacebookAccessToken(AccessToken token) {
+    private void handleFacebookAccessToken(final AccessToken token) {
 	Log.d(TAG, "handleFacebookAccessToken:" + token);
 
 	AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
@@ -112,6 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 			// Sign in success, update UI with the signed-in user's information
 			Log.d(TAG, "signInWithCredential:success");
 			FirebaseUser user = firebaseAuth.getCurrentUser();
+			mDatabase = FirebaseDatabase.getInstance().getReference();
+			saveUserData(token);
 			goToMainActivity();
 		    } else {
 			// If sign in fails, display a message to the user.
@@ -119,6 +122,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		    }
 		}
 	    });
+    }
+
+    private void saveUserData(AccessToken accessToken) {
+	GraphRequest request = GraphRequest.newMeRequest(
+	    accessToken,
+	    new GraphRequest.GraphJSONObjectCallback() {
+		@Override
+		public void onCompleted(
+		    JSONObject object,
+		    GraphResponse response) {
+		    	try {
+			    String firstName = object.getString("first_name");
+			    String lastName = object.getString("last_name");
+			    String email = object.getString("email");
+			    String id = object.getString("id");
+			    User user = new User(firstName, lastName, id, email);
+			    mDatabase.child("android_users").child(id).setValue(user);
+		    	}
+		    	catch (JSONException e) {
+		    	    Log.d(TAG, e.getLocalizedMessage());
+			}
+		}
+	    });
+	Bundle parameters = new Bundle();
+	parameters.putString("fields", "id, first_name, last_name, email");
+	request.setParameters(parameters);
+	request.executeAsync();
     }
 
 }

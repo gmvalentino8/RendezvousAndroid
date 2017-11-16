@@ -5,6 +5,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">1916943921957676</string>
     <string name="fb_login_protocol_scheme">fb1916943921957676</string>
+    <string name="title_activity_filter_event">FilterEventActivity</string>
 
 
 </resources>

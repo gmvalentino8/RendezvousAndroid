@@ -1,4 +1,4 @@
-package com.example.valentino.rendezvous;
+package com.example.valentino.rendezvous.activities;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -10,6 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.valentino.rendezvous.fragments.EventsFragment;
+import com.example.valentino.rendezvous.fragments.FriendsFragment;
+import com.example.valentino.rendezvous.fragments.HomeFragment;
+import com.example.valentino.rendezvous.fragments.ProfileFragment;
 import com.example.valentino.rendezvous.R;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
@@ -34,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
 	    getSupportFragmentManager().beginTransaction()
 		.add(R.id.content, homeFragment).commit();
 	}
+	setupBottomNavigation();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 	setupBottomNavigation();
     }
 

@@ -1,10 +1,8 @@
-package com.example.valentino.rendezvous;
+package com.example.valentino.rendezvous.fragments;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.valentino.rendezvous.R;
+import com.example.valentino.rendezvous.activities.LoginActivity;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
@@ -22,18 +22,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     public ProfileFragment() {
 	// Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance() {
-	ProfileFragment fragment = new ProfileFragment();
-	return fragment;
     }
 
     @Override
