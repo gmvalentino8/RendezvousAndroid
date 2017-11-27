@@ -18,17 +18,12 @@ import com.example.valentino.rendezvous.R;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.activity_main);
-
-	FirebaseDatabase database = FirebaseDatabase.getInstance();
-	DatabaseReference myRef = database.getReference("message");
-	myRef.setValue("Hello, World!");
 
 	if (findViewById(R.id.content) != null) {
 	    if (savedInstanceState != null) {
@@ -77,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 				.replace(R.id.content, new ProfileFragment()).commit();
 			    break;
 		    }
-
 		    return true;
 		}
 	    });

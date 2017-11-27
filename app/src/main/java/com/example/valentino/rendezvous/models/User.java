@@ -6,19 +6,19 @@ package com.example.valentino.rendezvous.models;
 
 public class User {
 
-    public String first_name;
-    public String last_name;
+    public String firstName;
+    public String lastName;
     public String email;
-    public String id;
+    public String facebookID;
 
     public User() {
 	// Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public User(String first_name, String last_name, String id, String email) {
-	this.first_name = first_name;
-	this.last_name = last_name;
-	this.id = id;
+    public User(String firstName, String lastName, String facebookID, String email) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.facebookID = facebookID;
 	this.email = email;
     }
 

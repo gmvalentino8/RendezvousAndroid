@@ -1,12 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.CreateEventActivity">
+        android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.CreateGroupActivity">
+
+    <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/createButton">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        >
+
+                    <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                        <TextView android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Event Overview"
+                        />
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Event name"
+                                android:id="@+id/nameField"
+                        />
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Event Description"
+                                android:id="@+id/descriptionField"
+                        />
+
+                        <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Location"
+                                android:inputType="none"
+                                android:id="@+id/locationField"/>
+
+                        <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            <TextView android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Private Event"/>
+
+                            <Switch
+                                    android:id="@+id/privateSwitch"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                            />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                >
+
+                    <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TextView android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Date + Time"
+                                android:id="@+id/dateAndTimeTitle"
+                        />
+
+                        <TextView android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:text="Start"
+                                android:layout_marginRight="16dp"
+                                android:id="@+id/startLabel"
+                                android:layout_below="@+id/dateAndTimeTitle"
+                        />
 
 
-    <TextView android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/test"
-            android:text="Create Events Activity" />
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/startLinearLayout"
+                                android:layout_below="@+id/dateAndTimeTitle"
+                                android:layout_toRightOf="@+id/startLabel">
 
-</android.support.constraint.ConstraintLayout>
+                            <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="3"
+                                    android:hint="Date"
+                                    android:id="@+id/startDate"
+                            />
+
+                            <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="2"
+                                    android:hint="Time"
+                                    android:id="@+id/startTime"
+                            />
+
+                        </LinearLayout>
+
+
+                        <TextView android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:text="End"
+                                android:id="@+id/endLabel"
+                                android:layout_below="@+id/startLabel"
+                        />
+
+                        <LinearLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/startLinearLayout"
+                                android:layout_alignStart="@+id/startLinearLayout">
+
+                            <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="3"
+                                    android:hint="Date"
+                                    android:id="@+id/endDate"
+                            />
+
+                            <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="2"
+                                    android:hint="Time"
+                                    android:id="@+id/endTime"
+                            />
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                    <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <TextView android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Friends"
+                                android:id="@+id/invitationLabel"
+                        />
+
+                        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:id="@+id/friendsList"
+                                android:layout_below="@+id/invitationLabel"
+                                android:layout_toLeftOf="@+id/addFriends">
+                        </android.support.v7.widget.RecyclerView>
+
+                        <Button android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/addFriends"
+                                android:layout_below="@+id/invitationLabel"
+                                android:text="+"
+                                android:layout_alignParentRight="true"/>
+
+                        <TextView android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:id="@+id/maxGoingLabel"
+                                android:gravity="center_vertical"
+                                android:text="Maximum Number of Participants"
+                                android:layout_below="@+id/friendsList"
+                                android:layout_toLeftOf="@+id/maxGoingField"/>
+
+                        <EditText android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/maxGoingField"
+                                android:layout_below="@+id/addFriends"
+                                android:layout_alignParentRight="true"
+                                android:gravity="center"
+                                android:hint="–"
+                                android:inputType="number"/>
+
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Create"
+                android:id="@+id/createButton"
+        />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

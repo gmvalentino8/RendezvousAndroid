@@ -2,10 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.valentino.rendezvous">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name"
             android:supportsRtl="true" android:theme="@style/AppTheme">
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyChNNC8TiM9Qaux2KT045Npp3fEINiBPhk" />
 
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
@@ -30,7 +34,8 @@
         <activity android:name=".activities.CreateEventActivity" />
         <activity android:name=".activities.FilterEventActivity" android:label="@string/title_activity_filter_event"
                 android:theme="@style/AppTheme" />
-        <activity android:name=".activities.CreateGroupActivity"></activity>
+        <activity android:name=".activities.CreateGroupActivity" />
+        <activity android:name=".activities.AddUsersActivity"></activity>
     </application>
 
 </manifest>

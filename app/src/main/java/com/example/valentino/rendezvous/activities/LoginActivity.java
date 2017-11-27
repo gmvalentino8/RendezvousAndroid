@@ -27,14 +27,20 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = LoginActivity.class.getSimpleName();
@@ -115,6 +121,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 			FirebaseUser user = firebaseAuth.getCurrentUser();
 			mDatabase = FirebaseDatabase.getInstance().getReference();
 			saveUserData(token);
+			List<String> friendslist = getFriendsList();
+			mDatabase.child("test").setValue("test");
 			goToMainActivity();
 		    } else {
 			// If sign in fails, display a message to the user.
@@ -138,7 +146,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 			    String email = object.getString("email");
 			    String id = object.getString("id");
 			    User user = new User(firstName, lastName, id, email);
-			    mDatabase.child("android_users").child(id).setValue(user);
+			    Map<String, Object> userUpdate = new HashMap<>();
+			    userUpdate.put(id, user);
+			    mDatabase.child("android_users").updateChildren(userUpdate);
 		    	}
 		    	catch (JSONException e) {
 		    	    Log.d(TAG, e.getLocalizedMessage());
@@ -149,6 +159,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	parameters.putString("fields", "id, first_name, last_name, email");
 	request.setParameters(parameters);
 	request.executeAsync();
+    }
+
+    private void saveUserFriends() {
+	new GraphRequest(
+	    AccessToken.getCurrentAccessToken(),
+	    "/{user-id}/friends",
+	    null,
+	    HttpMethod.GET,
+	    new GraphRequest.Callback() {
+		public void onCompleted(GraphResponse response) {
+		    mDatabase.child("android_users").setValue(response);
+		}
+	    }
+	).executeAsync();
+    }
+
+    private List<String> getFriendsList() {
+	final List<String> friendslist = new ArrayList<String>();
+	new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/friends", null, HttpMethod.GET, new GraphRequest.Callback() {
+	    public void onCompleted(GraphResponse response) {
+		try {
+		    Log.d("DEBUG", "GOT HERE");
+		    JSONObject responseObject = response.getJSONObject();
+		    JSONArray dataArray = responseObject.getJSONArray("data");
+
+		    for (int i = 0; i < dataArray.length(); i++) {
+			JSONObject dataObject = dataArray.getJSONObject(i);
+			String fbId = dataObject.getString("id");
+			friendslist.add(fbId);
+			Log.d("List", fbId);
+		    }
+		    List<String> list = friendslist;
+		    String friends = "";
+		    if (list != null && list.size() > 0) {
+			friends = list.toString();
+			if (friends.contains("[")) {
+			    friends = (friends.substring(1, friends.length() - 1));
+			}
+		    }
+		} catch (JSONException e) {
+		    e.printStackTrace();
+		}
+	    }
+	}).executeAsync();
+	return friendslist;
     }
 
 }

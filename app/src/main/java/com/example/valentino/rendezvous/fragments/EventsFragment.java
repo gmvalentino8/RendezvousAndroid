@@ -59,6 +59,7 @@ public class EventsFragment extends Fragment implements View.OnClickListener {
 	switch (view.getId()) {
 	    case R.id.fab:
 		Intent intent = new Intent(getActivity(), CreateEventActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 		startActivityForResult(intent, 100);
 		break;
 	    case R.id.filter:
