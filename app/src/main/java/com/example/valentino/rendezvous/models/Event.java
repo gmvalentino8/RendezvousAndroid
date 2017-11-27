@@ -19,20 +19,22 @@ public class Event {
     String name;
     String description;
     String location;
-    LatLng locationLatLng;
+    double latitute;
+    double longitude;
     boolean privacy;
     Date startDate;
     Date endDate;
     int maxGoing;
     Dictionary<Integer, String> users;
 
-    public Event(String name, String description, String location, LatLng locationLatLng,
-		 boolean privacy, Date startDate, Date endDate,
+    public Event(String name, String description, String location, double latitude,
+		 double longitude, boolean privacy, Date startDate, Date endDate,
 		 int maxGoing, Dictionary<Integer, String> users) {
 	this.name = name;
 	this.description = description;
 	this.location = location;
-	this.locationLatLng = locationLatLng;
+	this.latitute = latitude;
+	this.longitude = longitude;
 	this.privacy = privacy;
 	this.startDate = startDate;
 	this.endDate = endDate;

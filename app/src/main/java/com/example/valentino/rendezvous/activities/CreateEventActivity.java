@@ -116,8 +116,9 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
 	switch (view.getId()){
 	    case R.id.createButton:
 		Event newEvent = new Event(nameField.getText().toString(), descriptionField.getText().toString(),
-					   locationField.getText().toString(), locationLatLng,
-					   privateSwitch.isChecked(), startDate.getTime(), endDate.getTime(), 1, null);
+					   locationField.getText().toString(), locationLatLng.latitude,
+					   locationLatLng.longitude, privateSwitch.isChecked(), startDate.getTime(),
+					   endDate.getTime(), Integer.parseInt(maxGoingField.getText().toString()), null);
 		String eventID = mDatabase.child("android_events").push().getKey();
 		mDatabase.child("android_events").child(eventID).setValue(newEvent);
 		mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("events").child(eventID).setValue(Event.Status.Hosting.toString());
