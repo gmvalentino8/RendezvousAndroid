@@ -1,25 +1,28 @@
 package com.example.valentino.rendezvous.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.valentino.rendezvous.R;
 import com.example.valentino.rendezvous.activities.CreateEventActivity;
 import com.example.valentino.rendezvous.activities.FilterEventActivity;
-import com.example.valentino.rendezvous.activities.MainActivity;
+import com.example.valentino.rendezvous.listeners.EventListener;
+import com.example.valentino.rendezvous.models.Event;
+import com.example.valentino.rendezvous.dao.EventDAO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EventsFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = EventsFragment.class.getSimpleName();
     public static final String EVENT_TYPE_KEY = "EventTypeKey";
+    List<Event> eventsData = new ArrayList<>();
     private String eventType;
 
     public EventsFragment() {
@@ -35,6 +38,13 @@ public class EventsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
+	EventDAO.getEvents(new EventListener() {
+	    @Override
+	    public void onSuccess(List<Event> events) {
+		eventsData = events;
+		System.out.println("EVENT DATA: " + eventsData);
+	    }
+	});
     }
 
     @Override
