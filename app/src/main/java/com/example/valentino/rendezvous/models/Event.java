@@ -125,5 +125,4 @@ public class Event {
 	this.users = users;
     }
 
-
 }

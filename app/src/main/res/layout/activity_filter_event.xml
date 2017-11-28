@@ -3,9 +3,26 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.FilterEventActivity">
 
-    <TextView android:layout_width="match_parent"
+    <RelativeLayout android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/test"
-            android:text="Filter Events Activity" />
+            android:layout_weight="1">
+
+        <include layout = "@layout/layout_top_toolbar"
+                android:id="@+id/toolbar"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbarViewOptions"
+                android:paddingBottom="60dp">
+        </RelativeLayout>
+
+        <FrameLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/content"
+                android:layout_below="@+id/toolbarViewOptions">
+        </FrameLayout>
+
+
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

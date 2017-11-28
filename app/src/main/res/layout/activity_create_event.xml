@@ -6,8 +6,18 @@
     <RelativeLayout android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+        <include layout = "@layout/layout_top_toolbar"
+                android:id="@+id/toolbar"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbarViewOptions"
+                android:paddingBottom="60dp">
+        </RelativeLayout>
+
         <ScrollView android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/toolbarViewOptions"
                 android:layout_above="@+id/createButton">
 
             <LinearLayout
