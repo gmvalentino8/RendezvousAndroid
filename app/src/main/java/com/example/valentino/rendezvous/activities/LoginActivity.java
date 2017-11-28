@@ -174,9 +174,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		    JSONArray dataArray = responseObject.getJSONArray("data");
 
 		    for (int i = 0; i < dataArray.length(); i++) {
-			JSONObject dataObject = dataArray.getJSONObject(i);
-			String fbId = dataObject.getString("id");
-			friendslist.add(fbId);
+				JSONObject dataObject = dataArray.getJSONObject(i);
+				String fbId = dataObject.getString("id");
+				friendslist.add(fbId);
 		    }
 		    List<String> list = friendslist;
 		    mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("friends").setValue(list);

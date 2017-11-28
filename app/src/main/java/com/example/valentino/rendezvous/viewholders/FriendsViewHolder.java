@@ -28,16 +28,16 @@ public class FriendsViewHolder extends RecyclerView.ViewHolder {
     private ImageView friendProfileImage;
 
     public FriendsViewHolder(View itemView) {
-	super(itemView);
-	friendNameField = (TextView) itemView.findViewById(R.id.friendNameLabel);
-	friendProfileImage = (ImageView) itemView.findViewById(R.id.friendProfileImageView);
+		super(itemView);
+		friendNameField = (TextView) itemView.findViewById(R.id.friendNameLabel);
+		friendProfileImage = (ImageView) itemView.findViewById(R.id.friendProfileImageView);
     }
 
     public void bindData(final User viewModel) {
-	friendNameField.setText(viewModel.getFirstName() + " " + viewModel.getLastName());
-	Glide.with(itemView)
-	    .load(viewModel.picture)
-	    .into(friendProfileImage);
+		friendNameField.setText(viewModel.getFirstName() + " " + viewModel.getLastName());
+		Glide.with(itemView)
+			.load(viewModel.picture)
+			.into(friendProfileImage);
     }
 
 

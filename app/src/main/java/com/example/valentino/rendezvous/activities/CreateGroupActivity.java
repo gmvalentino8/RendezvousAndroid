@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.valentino.rendezvous.models.Group;
+import com.facebook.Profile;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -52,6 +53,10 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
 	        Group newGroup = new Group(groupNameField.getText().toString(), "", null);
 	        String groupID = mDatabase.child("android_groups").push().getKey();
 	        mDatabase.child("android_groups").child(groupID).setValue(newGroup);
+
+            // Work with updating user's groups
+            mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("groups").child(groupID).setValue(true);
+
 		break;
 	}
     }
