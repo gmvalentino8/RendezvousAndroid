@@ -55,6 +55,7 @@ public class GroupsListFragment extends Fragment {
                 adapter.updateGroupsList(groups);
             }
         });
+
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.groupsRecyclerView);

@@ -25,9 +25,7 @@ public class GroupsViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(final Group viewModel) {
         groupNameField.setText(viewModel.getName());
-        Glide.with(itemView)
-                .load(viewModel.getPicture())
-                .into(groupProfileImage);
+        groupProfileImage.setImageResource(R.drawable.facebook_icon);
     }
 
 }

@@ -42,27 +42,26 @@ public class UserDAO {
     }
 
     public static void getFriendsFromIDList(final Set<String> idList, final UserListener listener) {
-	FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-	Query eventsQuery = mDatabase.getReference("android_users");
-	eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-	    @Override
-	    public void onDataChange(DataSnapshot dataSnapshot) {
-		List<User> friendsList = new ArrayList<>();
-		for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
-		    if (idList.contains(eventSnapshot.getKey())) {
-			User friend = eventSnapshot.getValue(User.class);
-			friendsList.add(friend);
-		    }
-		}
-		listener.onSuccess(friendsList);
-	    }
+		FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+		Query eventsQuery = mDatabase.getReference("android_users");
+		eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+			List<User> friendsList = new ArrayList<>();
+			for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
+				if (idList.contains(eventSnapshot.getKey())) {
+				User friend = eventSnapshot.getValue(User.class);
+				friendsList.add(friend);
+				}
+			}
+			listener.onSuccess(friendsList);
+			}
 
-	    @Override
-	    public void onCancelled(DatabaseError databaseError) {
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
 
-	    }
-	});
+			}
+		});
     }
-
 
 }

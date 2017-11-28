@@ -115,15 +115,17 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
 	switch (view.getId()){
 	    case R.id.createButton:
-		Event newEvent = new Event(nameField.getText().toString(), descriptionField.getText().toString(),
-					   locationField.getText().toString(), locationLatLng.latitude,
-					   locationLatLng.longitude, privateSwitch.isChecked(), startDate.getTime(),
-					   endDate.getTime(), Integer.parseInt(maxGoingField.getText().toString()), null);
-		String eventID = mDatabase.child("android_events").push().getKey();
-		mDatabase.child("android_events").child(eventID).setValue(newEvent);
-		mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("events").child(eventID).setValue(Event.Status.Hosting.toString());
-		Toast.makeText(this, "Event Created", Toast.LENGTH_SHORT).show();
-		finish();
+	    	if(maxGoingField.getText().toString().length() != 0) {
+                Event newEvent = new Event(nameField.getText().toString(), descriptionField.getText().toString(),
+                               locationField.getText().toString(), locationLatLng.latitude,
+                               locationLatLng.longitude, privateSwitch.isChecked(), startDate.getTime(),
+                               endDate.getTime(), Integer.parseInt(maxGoingField.getText().toString()), null);
+                String eventID = mDatabase.child("android_events").push().getKey();
+                mDatabase.child("android_events").child(eventID).setValue(newEvent);
+                mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("events").child(eventID).setValue(Event.Status.Hosting.toString());
+                Toast.makeText(this, "Event Created", Toast.LENGTH_SHORT).show();
+                finish();
+	    	}
 	        break;
 	    case R.id.locationField:
 		onPickButtonClick();

@@ -41,7 +41,7 @@
                         <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Event name"
+                                android:hint="Event Name"
                                 android:id="@+id/nameField"
                         />
 
@@ -64,7 +64,7 @@
 
                             <TextView android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Private Event"/>
+                                    android:text="Private Event?"/>
 
                             <Switch
                                     android:id="@+id/privateSwitch"
@@ -89,7 +89,7 @@
 
                         <TextView android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Date + Time"
+                                android:text="Date and Time"
                                 android:id="@+id/dateAndTimeTitle"
                         />
 
@@ -195,7 +195,7 @@
                                 android:layout_height="40dp"
                                 android:id="@+id/maxGoingLabel"
                                 android:gravity="center_vertical"
-                                android:text="Maximum Number of Participants"
+                                android:text="Max. Number of Participants"
                                 android:layout_below="@+id/friendsList"
                                 android:layout_toLeftOf="@+id/maxGoingField"/>
 
@@ -205,7 +205,7 @@
                                 android:layout_below="@+id/addFriends"
                                 android:layout_alignParentRight="true"
                                 android:gravity="center"
-                                android:hint="–"
+                                android:hint="#"
                                 android:inputType="number"/>
 
 
