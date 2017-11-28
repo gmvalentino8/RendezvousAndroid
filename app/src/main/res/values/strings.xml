@@ -6,6 +6,24 @@
     <string name="facebook_app_id">1916943921957676</string>
     <string name="fb_login_protocol_scheme">fb1916943921957676</string>
     <string name="title_activity_filter_event">FilterEventActivity</string>
+    <string name="asktime">what time of the day are you looking for?</string>
+
+    <string-array name="time">
+        <item>early morning</item>
+        <item>later morning</item>
+        <item>noon</item>
+        <item>early afternoon</item>
+        <item>later afternoon</item>
+        <item>late at night</item>
+    </string-array>
 
 
+    <string-array name="distance">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>unlimited</item>
+    </string-array>
 </resources>
