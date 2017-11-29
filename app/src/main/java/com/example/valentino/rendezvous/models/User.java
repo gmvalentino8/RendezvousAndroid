@@ -1,11 +1,14 @@
 package com.example.valentino.rendezvous.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Valentino on 11/16/17.
  */
 
-public class User {
+public class User implements Serializable {
 
+    public String id;
     public String firstName;
     public String lastName;
     public String email;
@@ -20,6 +23,14 @@ public class User {
 	this.lastName = lastName;
 	this.picture = picture;
 	this.email = email;
+    }
+
+    public String getId() {
+	return id;
+    }
+
+    public void setId(String id) {
+	this.id = id;
     }
 
     public String getFirstName() {

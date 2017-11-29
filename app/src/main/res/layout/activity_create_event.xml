@@ -178,33 +178,33 @@
                         />
 
                         <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:id="@+id/friendsList"
+                                android:layout_height="55dp"
+                                android:id="@+id/invitesRecyclerView"
                                 android:layout_below="@+id/invitationLabel"
-                                android:layout_toLeftOf="@+id/addFriends">
+                                android:layout_toLeftOf="@+id/addFriendsButton">
                         </android.support.v7.widget.RecyclerView>
 
-                        <Button android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:id="@+id/addFriends"
+                        <Button android:layout_width="55dp"
+                                android:layout_height="55dp"
+                                android:id="@+id/addFriendsButton"
                                 android:layout_below="@+id/invitationLabel"
                                 android:text="+"
                                 android:layout_alignParentRight="true"/>
 
                         <TextView android:layout_width="match_parent"
-                                android:layout_height="40dp"
+                                android:layout_height="55dp"
                                 android:id="@+id/maxGoingLabel"
                                 android:gravity="center_vertical"
                                 android:text="Max. Number of Participants"
-                                android:layout_below="@+id/friendsList"
+                                android:layout_below="@+id/invitesRecyclerView"
                                 android:layout_toLeftOf="@+id/maxGoingField"/>
 
-                        <EditText android:layout_width="40dp"
-                                android:layout_height="40dp"
+                        <EditText android:layout_width="55dp"
+                                android:layout_height="55dp"
                                 android:id="@+id/maxGoingField"
-                                android:layout_below="@+id/addFriends"
+                                android:layout_below="@+id/addFriendsButton"
                                 android:layout_alignParentRight="true"
-                                android:gravity="center"
+                                android:layout_alignBaseline="@+id/maxGoingLabel"
                                 android:hint="#"
                                 android:inputType="number"/>
 

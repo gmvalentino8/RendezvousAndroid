@@ -15,6 +15,32 @@
                 android:paddingBottom="60dp">
         </RelativeLayout>
 
+        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:id="@+id/addUserRecyclerView"
+                android:layout_below="@id/toolbarViewOptions">
+        </android.support.v7.widget.RecyclerView>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black">
+        </View>
+
+        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/selectFriendsRecyclerView"
+                android:layout_below="@id/addUserRecyclerView"
+                android:layout_above="@+id/saveButton">
+        </android.support.v7.widget.RecyclerView>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/saveButton"
+                android:text="Save"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

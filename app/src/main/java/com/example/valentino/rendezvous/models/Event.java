@@ -1,5 +1,6 @@
 package com.example.valentino.rendezvous.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Dictionary;
 import java.util.List;
@@ -9,11 +10,12 @@ import java.util.Map;
  * Created by Valentino on 11/16/17.
  */
 
-public class Event {
+public class Event implements Serializable {
     public enum Status {
 	Going, Hosting, Invited
     }
 
+    String id;
     String name;
     String description;
     String location;
@@ -44,6 +46,13 @@ public class Event {
 	this.users = users;
     }
 
+    public String getId() {
+	return id;
+    }
+
+    public void setId(String id) {
+	this.id = id;
+    }
 
     public String getName() {
 	return name;

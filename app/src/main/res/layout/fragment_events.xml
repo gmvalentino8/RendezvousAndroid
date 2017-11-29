@@ -11,11 +11,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/filter"
             android:text="filter"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/black">
-
         </View>
 
         <ScrollView

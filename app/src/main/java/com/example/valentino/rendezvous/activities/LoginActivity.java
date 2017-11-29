@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.valentino.rendezvous.R;
+import com.example.valentino.rendezvous.dao.UserDAO;
 import com.example.valentino.rendezvous.models.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -117,74 +118,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		@Override
 		public void onComplete(@NonNull Task<AuthResult> task) {
 		    if (task.isSuccessful()) {
-			// Sign in success, update UI with the signed-in user's information
 			Log.d(TAG, "signInWithCredential:success");
-			FirebaseUser user = firebaseAuth.getCurrentUser();
-			mDatabase = FirebaseDatabase.getInstance().getReference();
-			saveUserData(token);
-			getFriendsList();
+			UserDAO.setUserData(token);
+			UserDAO.setFriendsList();
 			goToMainActivity();
 		    } else {
-			// If sign in fails, display a message to the user.
 			Log.w(TAG, "signInWithCredential:failure", task.getException());
 		    }
 		}
 	    });
-    }
-
-    private void saveUserData(AccessToken accessToken) {
-	GraphRequest request = GraphRequest.newMeRequest(
-	    accessToken,
-	    new GraphRequest.GraphJSONObjectCallback() {
-		@Override
-		public void onCompleted(
-		    JSONObject object,
-		    GraphResponse response) {
-		    	try {
-			    String firstName = object.getString("first_name");
-			    String lastName = object.getString("last_name");
-			    String email = object.getString("email");
-			    String picture = object.getJSONObject("picture").getJSONObject("data").getString("url");
-			    Log.e("PICTURE", picture.toString());
-			    String facebookID = object.getString("id");
-			    Map<String, Object> userUpdate = new HashMap<>();
-			    userUpdate.put("firstName", firstName);
-			    userUpdate.put("lastName", lastName);
-			    userUpdate.put("email", email);
-			    userUpdate.put("picture", picture);
-			    mDatabase.child("android_users").child(facebookID).updateChildren(userUpdate);
-		    	}
-		    	catch (JSONException e) {
-		    	    Log.d(TAG, e.getLocalizedMessage());
-			}
-		}
-	    });
-	Bundle parameters = new Bundle();
-	parameters.putString("fields", "id, first_name, last_name, email, picture");
-	request.setParameters(parameters);
-	request.executeAsync();
-    }
-
-    private void getFriendsList() {
-	final List<String> friendslist = new ArrayList<String>();
-	new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/friends", null, HttpMethod.GET, new GraphRequest.Callback() {
-	    public void onCompleted(GraphResponse response) {
-		try {
-		    JSONObject responseObject = response.getJSONObject();
-		    JSONArray dataArray = responseObject.getJSONArray("data");
-
-		    for (int i = 0; i < dataArray.length(); i++) {
-				JSONObject dataObject = dataArray.getJSONObject(i);
-				String fbId = dataObject.getString("id");
-				friendslist.add(fbId);
-		    }
-		    List<String> list = friendslist;
-		    mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("friends").setValue(list);
-		} catch (JSONException e) {
-		    e.printStackTrace();
-		}
-	    }
-	}).executeAsync();
     }
 
 }

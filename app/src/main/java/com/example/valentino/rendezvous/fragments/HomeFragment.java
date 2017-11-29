@@ -41,8 +41,8 @@ public class HomeFragment extends Fragment {
 		       EventsFragment.class, arg2);
 
 	Bundle arg3 = new Bundle();
-	arg3.putString(EventsFragment.EVENT_TYPE_KEY, "Invites");
-	tabHost.addTab(tabHost.newTabSpec("InvitesTab").setIndicator("Invites"),
+	arg3.putString(EventsFragment.EVENT_TYPE_KEY, "Invited");
+	tabHost.addTab(tabHost.newTabSpec("InvitesTab").setIndicator("Invited"),
 		       EventsFragment.class, arg3);
 	return root;
     }

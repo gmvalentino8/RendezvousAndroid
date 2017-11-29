@@ -29,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
 	    if (savedInstanceState != null) {
 		return;
 	    }
-	    HomeFragment homeFragment = new HomeFragment();
+	    EventsFragment initialFragment = new EventsFragment();
 	    getSupportFragmentManager().beginTransaction()
-		.add(R.id.content, homeFragment).commit();
+		.add(R.id.content, initialFragment).commit();
 	}
 	setupBottomNavigation();
     }
 
     @Override
     protected void onResume() {
-        super.onResume();
+	super.onResume();
 	setupBottomNavigation();
     }
 
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 	navBar.enableShiftingMode(false);
 	navBar.enableItemShiftingMode(false);
 	navBar.setTextVisibility(true);
+	navBar.setSelectedItemId(R.id.ic_events);
 	navBar.setOnNavigationItemSelectedListener(
 	    new BottomNavigationView.OnNavigationItemSelectedListener() {
 		@Override
