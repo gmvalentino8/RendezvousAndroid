@@ -2,6 +2,7 @@ package com.example.valentino.rendezvous.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +44,7 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
     private List<String> userList;
     private AddUserAdapter inviteAdapter;
     private RecyclerView inviteRecyclerView;
-
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,12 @@ public class CreateGroupActivity extends AppCompatActivity implements View.OnCli
 	inviteRecyclerView.setItemAnimator(new DefaultItemAnimator());
 	addFriendsButton = (Button) findViewById(R.id.addFriendsButton);
 	addFriendsButton.setOnClickListener(this);
+
+	toolbar = (Toolbar) findViewById(R.id.topToolBar);
+	toolbar.setTitle("New Group");
+	toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+	setSupportActionBar(toolbar);
+
     }
 
     @Override

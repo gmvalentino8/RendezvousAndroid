@@ -33,12 +33,13 @@ public class GroupDetailsFragment extends Fragment {
 	    group = (Group) getArguments().getSerializable("Group");
 	    Toast.makeText(getContext(), group.getName(), Toast.LENGTH_SHORT).show();
 	}
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			     Bundle savedInstanceState) {
+	((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Group Details");
+
 	// Inflate the layout for this fragment
 	View view = inflater.inflate(R.layout.fragment_group_details, container, false);
 

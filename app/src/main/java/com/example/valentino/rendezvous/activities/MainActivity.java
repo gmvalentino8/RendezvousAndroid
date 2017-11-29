@@ -4,10 +4,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -20,6 +22,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 	    getSupportFragmentManager().beginTransaction()
 		.add(R.id.content, initialFragment).commit();
 	}
+
+
+	toolbar = (Toolbar) findViewById(R.id.topToolBar);
+	setSupportActionBar(toolbar);
+	toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+
 	setupBottomNavigation();
     }
 

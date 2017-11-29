@@ -12,7 +12,9 @@ import com.example.valentino.rendezvous.R;
 import com.example.valentino.rendezvous.models.User;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Valentino on 11/27/17.
@@ -25,13 +27,17 @@ public class FriendsAdapter extends RecyclerView.Adapter {
 
     private final OnItemClickListener listener;
     private List<User> models = new ArrayList<>();
+    private Set<User> added = new HashSet<>();
     private boolean addFriends;
 
-    public FriendsAdapter(final List<User> viewModels, OnItemClickListener listener, boolean addFriends) {
+    public FriendsAdapter(final List<User> viewModels, final Set<User> addedFriends, OnItemClickListener listener, boolean addFriends) {
         if (viewModels != null) {
             this.models.addAll(viewModels);
 	}
         this.addFriends = addFriends;
+        if (addFriends) {
+            this.added.addAll(addedFriends);
+        }
         this.listener = listener;
     }
 
@@ -57,7 +63,7 @@ public class FriendsAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-	    ((FriendsViewHolder) holder).bindData(models.get(position), listener);
+	    ((FriendsViewHolder) holder).bindData(models.get(position), added, listener);
     }
 
     @Override
@@ -70,7 +76,7 @@ public class FriendsAdapter extends RecyclerView.Adapter {
         return R.layout.item_friend;
     }
 
-    static class FriendsViewHolder extends RecyclerView.ViewHolder {
+    public static class FriendsViewHolder extends RecyclerView.ViewHolder {
         private TextView friendNameField;
         private ImageView friendProfileImage;
         private ImageView addIndicatorImage;
@@ -82,7 +88,7 @@ public class FriendsAdapter extends RecyclerView.Adapter {
             addIndicatorImage = (ImageView) itemView.findViewById(R.id.addIndicatorImage);
         }
 
-        public void bindData(final User viewModel, final OnItemClickListener listener) {
+        public void bindData(final User viewModel, final Set<User> added, final OnItemClickListener listener) {
             friendNameField.setText(viewModel.getFirstName() + " " + viewModel.getLastName());
             Glide.with(itemView)
                 .load(viewModel.picture)
@@ -93,6 +99,9 @@ public class FriendsAdapter extends RecyclerView.Adapter {
                     listener.onItemClick(itemView, viewModel);
                 }
             });
+            if (added.contains(viewModel)) {
+                addIndicatorImage.setImageResource(R.drawable.ic_friends);
+            }
         }
 
     }

@@ -3,6 +3,7 @@ package com.example.valentino.rendezvous.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			     Bundle savedInstanceState) {
+	((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Home");
+
 	View root = inflater.inflate(R.layout.fragment_home, container, false);
 
 	FragmentTabHost tabHost = (FragmentTabHost) root.findViewById(android.R.id.tabhost);
@@ -44,6 +46,7 @@ public class HomeFragment extends Fragment {
 	arg3.putString(EventsFragment.EVENT_TYPE_KEY, "Invited");
 	tabHost.addTab(tabHost.newTabSpec("InvitesTab").setIndicator("Invited"),
 		       EventsFragment.class, arg3);
+
 	return root;
     }
 

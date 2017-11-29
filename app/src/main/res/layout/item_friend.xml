@@ -33,7 +33,7 @@
                 android:id="@+id/addIndicatorImage"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_friends"/>
+                android:src="@drawable/ic_profile"/>
 
     </RelativeLayout>
 

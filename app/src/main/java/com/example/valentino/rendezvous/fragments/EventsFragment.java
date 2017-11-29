@@ -1,5 +1,6 @@
 package com.example.valentino.rendezvous.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -49,12 +51,6 @@ public class EventsFragment extends Fragment implements View.OnClickListener, Ev
 	// Required empty public constructor
     }
 
-    public static EventsFragment newInstance(Bundle args) {
-        EventsFragment fragment = new EventsFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -63,6 +59,7 @@ public class EventsFragment extends Fragment implements View.OnClickListener, Ev
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			     Bundle savedInstanceState) {
+
 	View view = inflater.inflate(R.layout.fragment_events, container, false);
 	view.findViewById(R.id.filter).setOnClickListener(this);
 	view.findViewById(R.id.fab).setOnClickListener(this);
@@ -90,6 +87,8 @@ public class EventsFragment extends Fragment implements View.OnClickListener, Ev
 	    });
 	}
 	else {
+	    ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Events");
+
 	    EventDAO.getPublicEvents(new EventListener() {
 		@Override
 		public void onSuccess(List<Event> events) {

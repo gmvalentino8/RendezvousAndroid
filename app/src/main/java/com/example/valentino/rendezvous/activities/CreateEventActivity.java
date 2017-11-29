@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +71,7 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
     private RecyclerView inviteRecyclerView;
     Calendar startDate = Calendar.getInstance();
     Calendar endDate = Calendar.getInstance();
+    Toolbar toolbar;
 
 
     @Override
@@ -115,6 +118,10 @@ public class CreateEventActivity extends AppCompatActivity implements View.OnCli
 	addFriendsButton.setOnClickListener(this);
 	createButton.setOnClickListener(this);
 
+	toolbar = (Toolbar) findViewById(R.id.topToolBar);
+	toolbar.setTitle("New Event");
+	toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+	setSupportActionBar(toolbar);
     }
 
     @Override

@@ -11,19 +11,20 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-            <include layout = "@layout/layout_top_toolbar"
-                    android:id="@+id/toolbar"/>
+            <FrameLayout
+                    android:id="@+id/toolbar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <RelativeLayout android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/toolbarViewOptions"
-                    android:paddingBottom="60dp">
-            </RelativeLayout>
+                <include layout = "@layout/layout_top_toolbar" />
+                <include layout = "@layout/layout_toolbar_search" />
+
+            </FrameLayout>
 
             <FrameLayout android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/content"
-                    android:layout_below="@+id/toolbarViewOptions">
+                    android:layout_below="@+id/toolbar_container">
             </FrameLayout>
 
 
