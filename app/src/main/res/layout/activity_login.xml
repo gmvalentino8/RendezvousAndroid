@@ -11,6 +11,12 @@
             android:layout_gravity="top"
             android:src="@drawable/login_background" />
 
+    <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_white"
+    />
+
     <Button android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fb_login_button"
@@ -18,11 +24,11 @@
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
             android:layout_marginBottom="80dp"
-            android:background="#d03b5998"
+            android:background="#800000"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textAllCaps="false"
-            android:drawableLeft="@drawable/facebook_icon"
+            android:drawableLeft="@drawable/facebook_logo"
             android:paddingLeft="45dp"
             android:paddingRight="45dp"
             android:text="Login with Facebook"/>

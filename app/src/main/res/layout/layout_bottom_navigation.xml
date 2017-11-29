@@ -10,6 +10,8 @@
                     android:layout_height="match_parent"
                     android:id="@+id/bottomNavigationBar"
                     android:background="@color/colorPrimaryDark"
+                    app:itemIconTint="#FFFFFF"
+                    app:itemTextColor="#FFFFFF"
                     app:menu="@menu/bottom_navigation_menu">
             </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
 
