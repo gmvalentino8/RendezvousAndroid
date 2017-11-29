@@ -24,27 +24,6 @@ import java.util.Set;
 public class EventDAO {
     private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-    public static void getEvents(final EventListener listener) {
-	Query eventsQuery = mDatabase.child("android_events");
-	eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-	    @Override
-	    public void onDataChange(DataSnapshot dataSnapshot) {
-		List<Event> list = new ArrayList<>();
-		for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
-		    Event event = eventSnapshot.getValue(Event.class);
-		    event.setId(eventSnapshot.getKey());
-		    list.add(event);
-		}
-		listener.onSuccess(list);
-	    }
-
-	    @Override
-	    public void onCancelled(DatabaseError databaseError) {
-
-	    }
-	});
-    }
-
     public static void getFilteredEvents(final String eventsFilter, final EventListener listener) {
 	Query eventsQuery = mDatabase.child("android_users").child(Profile.getCurrentProfile().getId()).child("events");
 	eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -58,6 +37,29 @@ public class EventDAO {
 		    }
 		}
 		getEventsFromIDList(idList, listener);
+	    }
+
+	    @Override
+	    public void onCancelled(DatabaseError databaseError) {
+
+	    }
+	});
+    }
+
+    public static void getEventsFromIDList(final Set<String> idList, final EventListener listener) {
+	Query eventsQuery = mDatabase.child("android_events").orderByChild("startDate");
+	eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+	    @Override
+	    public void onDataChange(DataSnapshot dataSnapshot) {
+		List<Event> eventsList = new ArrayList<>();
+		for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
+		    if (idList.contains(eventSnapshot.getKey())) {
+			Event event = eventSnapshot.getValue(Event.class);
+			event.setId(eventSnapshot.getKey());
+			eventsList.add(event);
+		    }
+		}
+		listener.onSuccess(eventsList);
 	    }
 
 	    @Override
@@ -114,29 +116,6 @@ public class EventDAO {
 
             }
         });
-    }
-
-    public static void getEventsFromIDList(final Set<String> idList, final EventListener listener) {
-	Query eventsQuery = mDatabase.child("android_events").orderByChild("startDate");
-	eventsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-	    @Override
-	    public void onDataChange(DataSnapshot dataSnapshot) {
-		List<Event> eventsList = new ArrayList<>();
-		for (DataSnapshot eventSnapshot: dataSnapshot.getChildren()) {
-		    if (idList.contains(eventSnapshot.getKey())) {
-			Event event = eventSnapshot.getValue(Event.class);
-			event.setId(eventSnapshot.getKey());
-			eventsList.add(event);
-		    }
-		}
-		listener.onSuccess(eventsList);
-	    }
-
-	    @Override
-	    public void onCancelled(DatabaseError databaseError) {
-
-	    }
-	});
     }
 
     public static void createEvent(final Event event) {
