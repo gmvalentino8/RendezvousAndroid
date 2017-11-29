@@ -3,6 +3,7 @@ package com.example.valentino.rendezvous.activities;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import android.content.res.ColorStateList;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -58,19 +59,23 @@ public class MainActivity extends AppCompatActivity {
 		    switch (itemId) {
 			case R.id.ic_home:
 			    getSupportFragmentManager().beginTransaction()
-				.replace(R.id.content, new HomeFragment()).commit();
+				.replace(R.id.content, new HomeFragment())
+				.addToBackStack("Home").commit();
 			    break;
 			case R.id.ic_events:
 			    getSupportFragmentManager().beginTransaction()
-				.replace(R.id.content, new EventsFragment()).commit();
+				.replace(R.id.content, new EventsFragment())
+				.addToBackStack("Events").commit();
 			    break;
 			case R.id.ic_friends:
 			    getSupportFragmentManager().beginTransaction()
-				.replace(R.id.content, new FriendsFragment()).commit();
+				.replace(R.id.content, new FriendsFragment())
+				.addToBackStack("Friends").commit();
 			    break;
 			case R.id.ic_profile:
 			    getSupportFragmentManager().beginTransaction()
-				.replace(R.id.content, new ProfileFragment()).commit();
+				.replace(R.id.content, new ProfileFragment())
+				.addToBackStack("Profile").commit();
 			    break;
 		    }
 		    return true;
