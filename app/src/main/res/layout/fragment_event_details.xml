@@ -84,68 +84,45 @@
                             android:id="@+id/dateAndTimeTitle"
                             />
 
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:text="Start"
-                            android:layout_marginRight="16dp"
-                            android:id="@+id/startLabel"
-                            android:layout_below="@+id/dateAndTimeTitle"
-                            />
-
 
                         <LinearLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/startLinearLayout"
-                            android:layout_below="@+id/dateAndTimeTitle"
-                            android:layout_toRightOf="@+id/startLabel">
+                            android:layout_below="@+id/dateAndTimeTitle">
+
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:text="Start"
+                                android:id="@+id/startLabel"
+                                />
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="40dp"
-                                android:layout_weight="3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:hint="Date"
                                 android:id="@+id/startDate"
                                 />
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="40dp"
-                                android:layout_weight="2"
-                                android:hint="Time"
-                                android:id="@+id/startTime"
-                                />
-
                         </LinearLayout>
 
-
-                        <TextView android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:gravity="center"
-                            android:text="End"
-                            android:id="@+id/endLabel"
-                            android:layout_below="@+id/startLabel"
-                            />
 
                         <LinearLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/startLinearLayout"
                             android:layout_alignStart="@+id/startLinearLayout">
 
-                            <TextView
-                                android:layout_width="0dp"
+                            <TextView android:layout_width="wrap_content"
                                 android:layout_height="40dp"
-                                android:layout_weight="3"
-                                android:hint="Date"
-                                android:id="@+id/endDate"
-                                />
+                                android:gravity="center"
+                                android:text="End"
+                                android:id="@+id/endLabel"/>
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="40dp"
-                                android:layout_weight="2"
-                                android:hint="Time"
-                                android:id="@+id/endTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="Date"
+                                android:id="@+id/endDate"
                                 />
 
                         </LinearLayout>

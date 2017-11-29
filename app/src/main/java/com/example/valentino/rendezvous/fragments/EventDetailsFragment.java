@@ -7,12 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.valentino.rendezvous.R;
 import com.example.valentino.rendezvous.models.Event;
 import com.example.valentino.rendezvous.models.User;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class EventDetailsFragment extends Fragment {
 
@@ -22,10 +26,9 @@ public class EventDetailsFragment extends Fragment {
     TextView descriptionField;
     TextView locationField;
     TextView startDateField;
-    TextView startTimeField;
     TextView endDateField;
-    TextView endTimeField;
     TextView maxUsersField;
+    Switch privateEventSwitch;
 
     public EventDetailsFragment() {
 	// Required empty public constructor
@@ -43,14 +46,27 @@ public class EventDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			     Bundle savedInstanceState) {
-	View view = inflater.inflate(R.layout.fragment_event_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_event_details, container, false);
 
-	nameField = (TextView) view.findViewById(R.id.nameField);
-	nameField.setText(event.getName());
-	descriptionField = (TextView) view.findViewById(R.id.descriptionField);
-	descriptionField.setText(event.getDescription());
+        nameField = (TextView) view.findViewById(R.id.nameField);
+        descriptionField = (TextView) view.findViewById(R.id.descriptionField);
+        locationField = (TextView) view.findViewById(R.id.locationField);
+        startDateField = (TextView) view.findViewById(R.id.startDate);
+        endDateField = (TextView) view.findViewById(R.id.endDate);
+        maxUsersField = (TextView) view.findViewById(R.id.maxGoingLabel);
+        privateEventSwitch = (Switch) view.findViewById(R.id.privateSwitch);
 
-	return view;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+
+        nameField.setText(event.getName());
+        descriptionField.setText(event.getDescription());
+        locationField.setText(event.getLocation());
+        startDateField.setText(df.format(event.getStartDate()));
+        endDateField.setText(df.format(event.getEndDate()));
+        privateEventSwitch.setChecked(event.isPrivacy());
+
+
+        return view;
     }
 
 }
