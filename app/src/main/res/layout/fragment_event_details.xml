@@ -1,7 +1,239 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.fragments.EventDetailsFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.CreateGroupActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/hello_blank_fragment" />
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <ScrollView android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/buttonLinearLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    >
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Event Overview"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Event Name"
+                            android:id="@+id/nameField"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Event Description"
+                            android:id="@+id/descriptionField"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Location"
+                            android:inputType="none"
+                            android:id="@+id/locationField"/>
+
+                        <RelativeLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Private Event?"/>
+
+                            <Switch
+                                android:id="@+id/privateSwitch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:clickable="false"
+                                />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    >
+
+                    <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Date and Time"
+                            android:id="@+id/dateAndTimeTitle"
+                            />
+
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:text="Start"
+                            android:layout_marginRight="16dp"
+                            android:id="@+id/startLabel"
+                            android:layout_below="@+id/dateAndTimeTitle"
+                            />
+
+
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/startLinearLayout"
+                            android:layout_below="@+id/dateAndTimeTitle"
+                            android:layout_toRightOf="@+id/startLabel">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_weight="3"
+                                android:hint="Date"
+                                android:id="@+id/startDate"
+                                />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_weight="2"
+                                android:hint="Time"
+                                android:id="@+id/startTime"
+                                />
+
+                        </LinearLayout>
+
+
+                        <TextView android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:text="End"
+                            android:id="@+id/endLabel"
+                            android:layout_below="@+id/startLabel"
+                            />
+
+                        <LinearLayout android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/startLinearLayout"
+                            android:layout_alignStart="@+id/startLinearLayout">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_weight="3"
+                                android:hint="Date"
+                                android:id="@+id/endDate"
+                                />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"
+                                android:layout_weight="2"
+                                android:hint="Time"
+                                android:id="@+id/endTime"
+                                />
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Friends"
+                            android:id="@+id/invitationLabel"
+                            />
+
+                        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:id="@+id/invitesRecyclerView"
+                            android:layout_below="@+id/invitationLabel"
+                            android:layout_toLeftOf="@+id/addFriendsButton">
+                        </android.support.v7.widget.RecyclerView>
+
+                        <TextView android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:id="@+id/maxGoingLabel"
+                            android:gravity="center_vertical"
+                            android:text="Max. Number of Participants"
+                            android:layout_below="@+id/invitesRecyclerView"
+                            android:layout_toLeftOf="@+id/maxGoingField"/>
+
+                        <TextView android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:id="@+id/maxGoingField"
+                            android:layout_below="@+id/addFriendsButton"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignBaseline="@+id/maxGoingLabel"
+                            android:hint="#"
+                            android:inputType="number"/>
+
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonLinearLayout"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Going"
+                android:id="@+id/goingButton"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="Not Going"
+
+                android:id="@+id/notGoingButton"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
