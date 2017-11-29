@@ -90,7 +90,7 @@ public class EventsFragment extends Fragment implements View.OnClickListener, Ev
 	    });
 	}
 	else {
-	    EventDAO.getEvents(new EventListener() {
+	    EventDAO.getPublicEvents(new EventListener() {
 		@Override
 		public void onSuccess(List<Event> events) {
 		    adapter.updateEventsList(events);
