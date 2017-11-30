@@ -100,7 +100,7 @@ public class FriendsAdapter extends RecyclerView.Adapter {
                 }
             });
             if (added.contains(viewModel)) {
-                addIndicatorImage.setImageResource(R.drawable.ic_friends);
+                addIndicatorImage.setImageResource(R.drawable.ic_check_black);
             }
         }
 
