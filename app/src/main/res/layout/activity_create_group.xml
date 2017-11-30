@@ -39,7 +39,6 @@
                                 android:layout_height="200dp"
                                 android:layout_marginTop="10dp"
                                 android:id= "@+id/groupImageView"
-                                android:src="@drawable/ic_profile"
                                 android:layout_gravity="center"
                                 app:civ_border_width="0dp"
                                 app:civ_border_color="#FF000000"
@@ -48,7 +47,6 @@
                         <EditText style="@style/CardText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Group name"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:layout_marginTop="10dp"
@@ -75,27 +73,36 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Friends"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:id="@+id/invitationLabel"
                         />
 
                         <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                                 android:layout_height="55dp"
                                 android:layout_marginLeft="20dp"
-                                android:layout_marginTop="10dp"
                                 android:layout_marginBottom="10dp"
                                 android:id="@+id/invitesRecyclerView"
                                 android:layout_below="@+id/invitationLabel"
-                                android:layout_toLeftOf="@+id/addFriendsButton">
+                                android:layout_toRightOf="@+id/addFriendButtonHolder">
                         </android.support.v7.widget.RecyclerView>
 
-                        <Button style="@style/ButtonText"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_marginRight="20dp"
-                                android:id="@+id/addFriendsButton"
+                        <RelativeLayout android:layout_width="50dp"
+                                android:layout_height="55dp"
+                                android:id="@+id/addFriendButtonHolder"
+                                android:layout_marginLeft="20dp"
+                                android:layout_alignParentLeft="true"
                                 android:layout_below="@+id/invitationLabel"
-                                android:text="+"
-                                android:layout_alignParentRight="true"/>
+                        >
+                            <Button style="@style/ButtonText"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:id="@+id/addFriendsButton"
+                                    android:background="@drawable/ic_add_black"
+                                    android:layout_centerInParent="true"
+                            />
+
+                        </RelativeLayout>
 
 
                     </RelativeLayout>
@@ -107,9 +114,13 @@
 
         </ScrollView>
 
-        <Button android:layout_width="wrap_content"
+        <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
                 android:id="@+id/createGroupButton"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/white"
                 android:text="Create Group"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"

@@ -20,6 +20,7 @@
                 android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:text="Event Name"
+
                 android:id="@+id/eventname"
                 />
 
@@ -29,7 +30,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/ic_events"/>
+                android:background="@drawable/ic_events"
+                android:visibility="invisible"/>
 
             <TextView style="@style/CardText"
                 android:layout_width="275dp"

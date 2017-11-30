@@ -39,6 +39,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Event Overview"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                         />
                         <EditText style="@style/CardText"
                                 android:layout_width="match_parent"
@@ -49,18 +51,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="0dp">
 
-                            <TextView style="@style/CardText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tags"
-                                    android:id="@+id/tags"/>
-                            <TextView style="@style/CardText"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="lunch"
-                                    android:id="@+id/element"
-                                    android:layout_below="@id/tags"
-                            />
+
                             <!--<Button-->
                                     <!--android:layout_width="wrap_content"-->
                                     <!--android:layout_height="wrap_content"-->
@@ -106,6 +97,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Date &amp; Time"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                         />
                         <LinearLayout
                                 android:layout_width="match_parent"
@@ -129,9 +122,9 @@
                                     android:layout_weight="2"
                                     android:id="@+id/datetext"/>
                             <ImageButton
-                                    android:layout_marginRight="20dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="30dp"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
                                     android:background="@drawable/ic_events"
                             />
 
@@ -143,10 +136,10 @@
                                 android:orientation="horizontal">
 
                             <TextView style="@style/CardText"
-                                    android:paddingBottom="10dp"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="30dp"
                                     android:layout_marginLeft="20dp"
+                                    android:layout_marginBottom="10dp"
                                     android:text="Time"
                                     android:layout_weight="2"
 
@@ -180,7 +173,9 @@
                         <TextView style="@style/CardTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Location"/>
+                                android:text="Location"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"/>
 
                         <LinearLayout
                                 android:layout_width="match_parent"
@@ -188,23 +183,26 @@
                                 android:orientation="horizontal">
 
                             <TextView style="@style/CardText"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:text="Within"/>
 
                             <Spinner style="@style/CardText"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
+                                    android:layout_weight="8"
+                                    android:textAlignment="viewEnd"
                                     android:entries="@array/distance">
                             </Spinner>
 
                             <TextView style="@style/CardText"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="4"
+                                    android:layout_weight="2"
+                                    android:layout_marginRight="25dp"
+                                    android:gravity="right"
                                     android:text="miles"/>
 
                         </LinearLayout>
@@ -224,6 +222,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:gravity="right"
                                     android:hint="Location"/>
 
                         </LinearLayout>
@@ -261,12 +260,7 @@
                                     android:layout_marginRight="10dp"
                                     android:id="@+id/host"
                             />
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/login_background"
-                                    android:layout_toEndOf="@id/host"
-                                    android:layout_alignBottom="@id/host"/>
+
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -281,22 +275,6 @@
                                     android:layout_marginLeft="20dp"
                                     android:id="@+id/going"/>
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/login_background"
-                                    android:id="@+id/firstimage"
-                                    android:layout_toEndOf="@id/going"
-                                    android:layout_alignBottom="@id/going"/>
-
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/login_background"
-                                    android:id="@+id/secondimage"
-                                    android:layout_toEndOf="@id/firstimage"
-                                    android:layout_alignBottom="@id/going"/>
-
                         </RelativeLayout>
 
                     </LinearLayout>
@@ -308,12 +286,16 @@
         </ScrollView>
 
         <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
                 android:id="@+id/filterButton"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:text="filter" />
+                android:text="filter"
+                android:textColor="@color/white"
+                android:background="@drawable/button_shape"/>
 
     </RelativeLayout>
 

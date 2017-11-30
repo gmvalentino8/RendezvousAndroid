@@ -27,6 +27,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Event Overview"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                             />
 
                         <TextView style="@style/CardText"
@@ -87,6 +89,8 @@
                             android:layout_height="wrap_content"
                             android:text="Date &amp; Time"
                             android:id="@+id/dateAndTimeTitle"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                             />
 
 
@@ -157,6 +161,8 @@
                             android:layout_height="wrap_content"
                             android:text="Friends"
                             android:id="@+id/invitationLabel"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorPrimaryDark"
                             />
 
                         <android.support.v7.widget.RecyclerView
@@ -176,7 +182,7 @@
                             android:id="@+id/maxGoingLabel"
                             android:gravity="center_vertical"
                             android:text="Max. Number of Participants"
-                            android:layout_below="@+id/invitesRecyclerView"
+                            android:layout_below="@+id/goingRecyclerView"
                             android:layout_toLeftOf="@+id/maxGoingField"/>
 
                         <TextView style="@style/CardText"
@@ -216,6 +222,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:text="Going"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_shape"
                 android:id="@+id/goingButton"
                 />
 
@@ -226,6 +234,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:text="Not Going"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_shape"
 
                 android:id="@+id/notGoingButton"
                 />

@@ -153,11 +153,11 @@ public class AddUsersActivity extends AppCompatActivity implements View.OnClickL
 	    if (!displaySet.contains(user)) {
 		displayList.add(user);
 		displaySet.add(user);
-		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_friends);
+		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_check_black);
 	    } else {
 		displayList.remove(user);
 		displaySet.remove(user);
-		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_profile);
+		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_add_black);
 	    }
 	    displayAdapter.updateAddUserList(displayList);
 	}

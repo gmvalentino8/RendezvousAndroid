@@ -23,8 +23,9 @@
 
         <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black">
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                android:layout_below="@id/addUserRecyclerView">
         </View>
 
         <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
@@ -34,10 +35,14 @@
                 android:layout_above="@+id/saveButton">
         </android.support.v7.widget.RecyclerView>
 
-        <Button android:layout_width="wrap_content"
+        <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/saveButton"
                 android:text="Save"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_shape"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"/>
 
