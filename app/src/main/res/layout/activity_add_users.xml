@@ -16,7 +16,8 @@
         </FrameLayout>
 
         <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:padding="5dp"
+                android:layout_height="65dp"
                 android:id="@+id/addUserRecyclerView"
                 android:layout_below="@id/toolbar_container">
         </android.support.v7.widget.RecyclerView>
