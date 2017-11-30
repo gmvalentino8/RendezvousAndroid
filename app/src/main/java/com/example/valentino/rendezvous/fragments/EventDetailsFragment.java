@@ -5,6 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +16,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.valentino.rendezvous.R;
+import com.example.valentino.rendezvous.adapters.AddUserAdapter;
+import com.example.valentino.rendezvous.dao.UserDAO;
+import com.example.valentino.rendezvous.listeners.UserListener;
 import com.example.valentino.rendezvous.models.Event;
 import com.example.valentino.rendezvous.models.User;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.List;
 
 public class EventDetailsFragment extends Fragment {
 
     Event event;
+
+    List<User> goingList;
+    AddUserAdapter goingAdapter;
+    RecyclerView goingRecyclerView;
 
     TextView nameField;
     TextView descriptionField;
@@ -40,8 +52,16 @@ public class EventDetailsFragment extends Fragment {
 	super.onCreate(savedInstanceState);
 	if (getArguments() != null) {
 	    event = (Event) getArguments().getSerializable("Event");
-	    Toast.makeText(getContext(), event.getName(), Toast.LENGTH_SHORT).show();
 	}
+
+        UserDAO
+            .getFriendsFromIDList(event.getUsers().keySet(), new UserListener() {
+                @Override
+                public void onSuccess(List<User> users) {
+                    goingList = users;
+                    goingAdapter.updateAddUserList(goingList);
+                }
+            });
 
     }
 
@@ -69,6 +89,13 @@ public class EventDetailsFragment extends Fragment {
         endDateField.setText(df.format(event.getEndDate()));
         privateEventSwitch.setChecked(event.isPrivacy());
 
+        goingAdapter = new AddUserAdapter(goingList);
+        goingRecyclerView = (RecyclerView) view.findViewById(R.id.goingRecyclerView);
+        LinearLayoutManager goingLayoutManager = new LinearLayoutManager(getContext());
+        goingLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        goingRecyclerView.setAdapter(goingAdapter);
+        goingRecyclerView.setLayoutManager(goingLayoutManager);
+        goingRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         return view;
     }

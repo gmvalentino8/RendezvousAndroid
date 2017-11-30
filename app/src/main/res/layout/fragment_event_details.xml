@@ -164,7 +164,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="55dp"
-                            android:id="@+id/invitesRecyclerView"
+                            android:id="@+id/goingRecyclerView"
                             android:layout_below="@+id/invitationLabel"
                             android:layout_toLeftOf="@+id/addFriendsButton">
                         </android.support.v7.widget.RecyclerView>
