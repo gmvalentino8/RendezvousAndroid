@@ -23,26 +23,27 @@
                     <LinearLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Event Overview"
                             />
 
-                        <TextView
+                        <TextView style="@style/CardText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Event Name"
                             android:id="@+id/nameField"
-                            />
+                        />
 
-                        <TextView
+                        <TextView style="@style/CardText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Event Description"
                             android:id="@+id/descriptionField"
                             />
 
-                        <TextView
+                        <TextView style="@style/CardText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Location"
@@ -52,9 +53,10 @@
                         <RelativeLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <TextView android:layout_width="wrap_content"
+                            <TextView style="@style/CardText"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Private Event?"/>
+                                android:text="Private Event"/>
 
                             <Switch
                                 android:id="@+id/privateSwitch"
@@ -62,6 +64,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:clickable="false"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
                                 />
 
                         </RelativeLayout>
@@ -78,47 +82,56 @@
                     <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Date and Time"
+                            android:text="Date &amp; Time"
                             android:id="@+id/dateAndTimeTitle"
                             />
 
 
-                        <LinearLayout android:layout_width="match_parent"
+                        <LinearLayout android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/startLinearLayout"
-                            android:layout_below="@+id/dateAndTimeTitle">
+                            android:layout_below="@+id/dateAndTimeTitle"
+                            android:textAlignment="center"
+                            android:orientation="vertical">
 
-                            <TextView android:layout_width="wrap_content"
-                                android:layout_height="40dp"
+                            <TextView style="@style/CardText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="Start"
                                 android:id="@+id/startLabel"
                                 />
 
-                            <TextView
+                            <TextView style="@style/CardText"
+                                android:paddingBottom="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="End"
+                                android:id="@+id/endLabel"/>
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/dateAndTimeTitle"
+                            android:layout_toRightOf="@+id/startLinearLayout"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/CardText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:hint="Date"
                                 android:id="@+id/startDate"
                                 />
 
-                        </LinearLayout>
-
-
-                        <LinearLayout android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/startLinearLayout"
-                            android:layout_alignStart="@+id/startLinearLayout">
-
-                            <TextView android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:text="End"
-                                android:id="@+id/endLabel"/>
-
-                            <TextView
+                            <TextView style="@style/CardText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:hint="Date"
@@ -139,29 +152,36 @@
                     <RelativeLayout android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Friends"
                             android:id="@+id/invitationLabel"
                             />
 
-                        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
                             android:layout_height="55dp"
                             android:id="@+id/invitesRecyclerView"
                             android:layout_below="@+id/invitationLabel"
                             android:layout_toLeftOf="@+id/addFriendsButton">
                         </android.support.v7.widget.RecyclerView>
 
-                        <TextView android:layout_width="match_parent"
-                            android:layout_height="55dp"
+                        <TextView style="@style/CardText"
+                            android:paddingBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:id="@+id/maxGoingLabel"
                             android:gravity="center_vertical"
                             android:text="Max. Number of Participants"
                             android:layout_below="@+id/invitesRecyclerView"
                             android:layout_toLeftOf="@+id/maxGoingField"/>
 
-                        <TextView android:layout_width="55dp"
-                            android:layout_height="55dp"
+                        <TextView style="@style/CardText"
+                            android:layout_width="55dp"
+                            android:layout_height="wrap_content"
                             android:id="@+id/maxGoingField"
                             android:layout_below="@+id/addFriendsButton"
                             android:layout_alignParentRight="true"
@@ -184,6 +204,7 @@
             android:id="@+id/buttonLinearLayout"
             android:paddingRight="30dp"
             android:paddingLeft="30dp"
+            android:paddingBottom="30dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true">

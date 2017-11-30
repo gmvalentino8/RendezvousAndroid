@@ -60,7 +60,7 @@ public class EventDetailsFragment extends Fragment {
         maxUsersField = (TextView) view.findViewById(R.id.maxGoingLabel);
         privateEventSwitch = (Switch) view.findViewById(R.id.privateSwitch);
 
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+        DateFormat df = new SimpleDateFormat("MMM dd; hh:mm a");
 
         nameField.setText(event.getName());
         descriptionField.setText(event.getDescription());

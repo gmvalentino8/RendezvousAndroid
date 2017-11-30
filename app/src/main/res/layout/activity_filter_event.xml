@@ -35,39 +35,37 @@
                             android:orientation="vertical"
                             android:layout_margin="8dp">
 
-                        <TextView
+                        <TextView style="@style/CardTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Event Overview"
                         />
-                        <EditText
+                        <EditText style="@style/CardText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="event name"/>
+                                android:hint="Event Name"/>
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="8dp">
+                                android:layout_margin="0dp">
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Tags"
-                                    android:textSize="20dp"
                                     android:id="@+id/tags"/>
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="lunch"
                                     android:id="@+id/element"
-                                    android:textSize="15dp"
                                     android:layout_below="@id/tags"
                             />
-                            <Button
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignBottom="@id/tags"
+                            <!--<Button-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_alignParentRight="true"-->
+                                    <!--android:layout_alignBottom="@id/tags"-->
                             />
                         </RelativeLayout>
 
@@ -75,11 +73,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                            <TextView
+                            <TextView style="@style/CardText"
+                                    android:layout_marginBottom="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Display Private Events"/>
                             <Switch
+                                    android:layout_marginRight="20dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"/>
@@ -102,10 +102,10 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                        <TextView
+                        <TextView style="@style/CardTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Date + Time"
+                                android:text="Date &amp; Time"
                         />
                         <LinearLayout
                                 android:layout_width="match_parent"
@@ -113,15 +113,15 @@
                                 android:layout_gravity="center"
                                 android:orientation="horizontal">
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
-                                    android:text="DATE"
+                                    android:text="Date"
                                     android:layout_weight="2"
                                     android:id="@+id/date"
                             />
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:hint="mm/dd/yyyy"
@@ -129,6 +129,7 @@
                                     android:layout_weight="2"
                                     android:id="@+id/datetext"/>
                             <ImageButton
+                                    android:layout_marginRight="20dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/ic_events"
@@ -141,15 +142,16 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                            <TextView
+                            <TextView style="@style/CardText"
+                                    android:paddingBottom="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
-                                    android:text="TIME"
+                                    android:text="Time"
                                     android:layout_weight="2"
 
                             />
-                            <Spinner
+                            <Spinner style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:entries="@array/time"
@@ -175,7 +177,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                        <TextView
+                        <TextView style="@style/CardTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Location"/>
@@ -185,21 +187,21 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
                                     android:layout_weight="4"
                                     android:text="Within"/>
 
-                            <Spinner
+                            <Spinner style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:entries="@array/distance">
                             </Spinner>
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="4"
@@ -212,13 +214,13 @@
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="20dp"
                                     android:text="Of"
                                     android:layout_weight="1"/>
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -241,17 +243,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                        <TextView
+                        <TextView style="@style/CardTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="people"
+                                android:text="People"
                         />
                         <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                         >
 
-                            <TextView
+                            <TextView style="@style/CardText"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Host"
@@ -271,7 +273,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                            <TextView
+                            <TextView style="@style/CardText"
+                                    android:layout_marginBottom="10dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Going"

@@ -41,9 +41,9 @@ import java.util.List;
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     User user;
-    TextView logOutButton;
-    EditText nameEditText;
-    EditText emailEditText;
+    Button logOutButton;
+    TextView nameEditText;
+    TextView emailEditText;
     ImageView profileImageView;
 
     public ProfileFragment() {
@@ -85,11 +85,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     public void initViews(View view) {
-        nameEditText = (EditText) view.findViewById(R.id.nameField);
-        nameEditText.setEnabled(false);
-        emailEditText = (EditText) view.findViewById(R.id.emailField);
-        emailEditText.setEnabled(false);
-        logOutButton = (TextView) view.findViewById(R.id.signOutButton);
+        nameEditText = (TextView) view.findViewById(R.id.nameField);
+//        nameEditText.setEnabled(false);
+        emailEditText = (TextView) view.findViewById(R.id.emailField);
+//        emailEditText.setEnabled(false);
+        logOutButton = (Button) view.findViewById(R.id.signOutButton);
         profileImageView = (ImageView) view.findViewById(R.id.profileImageView);
         logOutButton.setOnClickListener(this);
     }

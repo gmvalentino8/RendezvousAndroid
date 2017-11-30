@@ -18,11 +18,12 @@
         <ScrollView android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/toolbarViewOptions"
-                android:layout_above="@+id/createButton">
+                android:layout_centerHorizontal="true">
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
                     android:orientation="vertical">
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
@@ -33,26 +34,27 @@
                     <LinearLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Event Overview"
                         />
 
-                        <EditText
+                        <EditText style="@style/CardText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Event Name"
                                 android:id="@+id/nameField"
                         />
 
-                        <EditText
+                        <EditText style="@style/CardText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Event Description"
                                 android:id="@+id/descriptionField"
                         />
 
-                        <EditText
+                        <EditText style="@style/CardText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Location"
@@ -62,16 +64,20 @@
                         <RelativeLayout android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                            <TextView android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Private Event?"/>
+                            <TextView style="@style/CardText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Private Event"/>
 
                             <Switch
-                                    android:id="@+id/privateSwitch"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentRight="true"
-                            />
+                                android:id="@+id/privateSwitch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:layout_marginRight="20dp"
+                                />
 
                         </RelativeLayout>
 
@@ -87,13 +93,15 @@
                     <RelativeLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Date and Time"
                                 android:id="@+id/dateAndTimeTitle"
                         />
 
-                        <TextView android:layout_width="wrap_content"
+                        <TextView style="@style/CardText"
+                                android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:gravity="center"
                                 android:text="Start"
@@ -109,7 +117,7 @@
                                 android:layout_below="@+id/dateAndTimeTitle"
                                 android:layout_toRightOf="@+id/startLabel">
 
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="0dp"
                                     android:layout_height="40dp"
                                     android:layout_weight="3"
@@ -117,7 +125,7 @@
                                     android:id="@+id/startDate"
                             />
 
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="0dp"
                                     android:layout_height="40dp"
                                     android:layout_weight="2"
@@ -128,7 +136,8 @@
                         </LinearLayout>
 
 
-                        <TextView android:layout_width="wrap_content"
+                        <TextView style="@style/CardText"
+                                android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:gravity="center"
                                 android:text="End"
@@ -136,12 +145,13 @@
                                 android:layout_below="@+id/startLabel"
                         />
 
-                        <LinearLayout android:layout_width="match_parent"
+                        <LinearLayout android:paddingBottom="10dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/startLinearLayout"
                                 android:layout_alignStart="@+id/startLinearLayout">
 
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="0dp"
                                     android:layout_height="40dp"
                                     android:layout_weight="3"
@@ -149,7 +159,7 @@
                                     android:id="@+id/endDate"
                             />
 
-                            <EditText
+                            <EditText style="@style/CardText"
                                     android:layout_width="0dp"
                                     android:layout_height="40dp"
                                     android:layout_weight="2"
@@ -165,42 +175,52 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
+                        android:id="@+id/friendsCard"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp">
 
                     <RelativeLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                        <TextView android:layout_width="match_parent"
+                        <TextView style="@style/CardTitle"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Friends"
                                 android:id="@+id/invitationLabel"
                         />
 
-                        <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
-                                android:layout_height="55dp"
-                                android:id="@+id/invitesRecyclerView"
-                                android:layout_below="@+id/invitationLabel"
-                                android:layout_toLeftOf="@+id/addFriendsButton">
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:id="@+id/invitesRecyclerView"
+                            android:layout_below="@+id/invitationLabel"
+                            android:layout_toLeftOf="@+id/addFriendsButton">
                         </android.support.v7.widget.RecyclerView>
 
-                        <Button android:layout_width="55dp"
-                                android:layout_height="55dp"
+                        <Button style="@style/ButtonText"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginRight="20dp"
                                 android:id="@+id/addFriendsButton"
                                 android:layout_below="@+id/invitationLabel"
                                 android:text="+"
                                 android:layout_alignParentRight="true"/>
 
-                        <TextView android:layout_width="match_parent"
-                                android:layout_height="55dp"
+                        <TextView style="@style/CardText"
+                                android:paddingBottom="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:id="@+id/maxGoingLabel"
                                 android:gravity="center_vertical"
                                 android:text="Max. Number of Participants"
                                 android:layout_below="@+id/invitesRecyclerView"
                                 android:layout_toLeftOf="@+id/maxGoingField"/>
 
-                        <EditText android:layout_width="55dp"
-                                android:layout_height="55dp"
+                        <EditText style="@style/CardText"
+                                android:layout_width="55dp"
+                                android:layout_height="wrap_content"
                                 android:id="@+id/maxGoingField"
                                 android:layout_below="@+id/addFriendsButton"
                                 android:layout_alignParentRight="true"
@@ -208,24 +228,27 @@
                                 android:hint="#"
                                 android:inputType="number"/>
 
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+                    </android.support.v7.widget.CardView>
 
-                </android.support.v7.widget.CardView>
+                <Button
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/maxGoingField"
+                    android:layout_centerHorizontal="true"
+                    android:text="Create Event"
+                    android:id="@+id/createButton"
+                    />
 
             </LinearLayout>
 
+
+
         </ScrollView>
-
-
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="Create"
-                android:id="@+id/createButton"
-        />
 
     </RelativeLayout>
 

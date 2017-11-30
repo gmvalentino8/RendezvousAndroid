@@ -85,7 +85,7 @@ public class EventsAdapter extends RecyclerView.Adapter {
         public void bindData(final Event viewModel, final OnItemClickListener listener) {
             eventNameField.setText(viewModel.getName());
             eventLocationField.setText(viewModel.getLocation());
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+            DateFormat df = new SimpleDateFormat("MMM dd; hh:mm a");
             eventTimeField.setText(df.format(viewModel.getStartDate()) + " – " + df.format(viewModel.getEndDate()));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

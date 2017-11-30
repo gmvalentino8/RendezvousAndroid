@@ -47,7 +47,6 @@ public class GroupDetailsFragment extends Fragment {
 	nameField.setText(group.getName());
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(group.getName());
-
         return view;
     }
 
