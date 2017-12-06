@@ -1,74 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.CreateGroupActivity">
+        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent" tools:context="com.example.valentino.rendezvous.activities.CreateGroupActivity">
 
     <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_height="match_parent">
 
         <ScrollView android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/buttonLinearLayout">
+                android:layout_height="match_parent"
+                android:layout_above="@+id/buttonLinearLayout">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    >
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                >
 
                     <LinearLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
                         <TextView style="@style/CardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Event Overview"
-                                android:textSize="16dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Event Overview"
                                 android:textColor="@color/colorPrimaryDark"
-                            />
-
-                        <TextView style="@style/CardText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Event Name"
-                            android:id="@+id/nameField"
                         />
 
                         <TextView style="@style/CardText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Event Description"
-                            android:id="@+id/descriptionField"
-                            />
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Event Name"
+                                android:id="@+id/nameField"
+                        />
 
                         <TextView style="@style/CardText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Location"
-                            android:inputType="none"
-                            android:id="@+id/locationField"/>
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Event Description"
+                                android:id="@+id/descriptionField"
+                        />
+
+                        <TextView style="@style/CardText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Location"
+                                android:inputType="none"
+                                android:id="@+id/locationField"/>
 
                         <RelativeLayout android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                                android:layout_height="wrap_content">
 
                             <TextView style="@style/CardText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Private Event"/>
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Private Event"/>
 
                             <Switch
-                                android:id="@+id/privateSwitch"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:clickable="false"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="10dp"
-                                />
+                                    android:id="@+id/privateSwitch"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:clickable="false"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="10dp"
+                            />
 
                         </RelativeLayout>
 
@@ -77,45 +76,44 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    >
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                >
 
                     <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                            android:layout_height="wrap_content">
 
                         <TextView style="@style/CardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Date &amp; Time"
-                            android:id="@+id/dateAndTimeTitle"
-                                android:textSize="16dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Date &amp; Time"
+                                android:id="@+id/dateAndTimeTitle"
                                 android:textColor="@color/colorPrimaryDark"
-                            />
+                        />
 
 
                         <LinearLayout android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/startLinearLayout"
-                            android:layout_below="@+id/dateAndTimeTitle"
-                            android:textAlignment="center"
-                            android:orientation="vertical">
+                                android:layout_height="wrap_content"
+                                android:id="@+id/startLinearLayout"
+                                android:layout_below="@+id/dateAndTimeTitle"
+                                android:textAlignment="center"
+                                android:orientation="vertical">
 
                             <TextView style="@style/CardText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Start"
-                                android:id="@+id/startLabel"
-                                />
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Start"
+                                    android:id="@+id/startLabel"
+                            />
 
                             <TextView style="@style/CardText"
-                                android:paddingBottom="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="End"
-                                android:id="@+id/endLabel"/>
+                                    android:paddingBottom="10dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="End"
+                                    android:id="@+id/endLabel"/>
 
 
 
@@ -123,24 +121,24 @@
 
 
                         <LinearLayout android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/dateAndTimeTitle"
-                            android:layout_toRightOf="@+id/startLinearLayout"
-                            android:orientation="vertical">
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/dateAndTimeTitle"
+                                android:layout_toRightOf="@+id/startLinearLayout"
+                                android:orientation="vertical">
 
                             <TextView style="@style/CardText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="Date"
-                                android:id="@+id/startDate"
-                                />
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Date"
+                                    android:id="@+id/startDate"
+                            />
 
                             <TextView style="@style/CardText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="Date"
-                                android:id="@+id/endDate"
-                                />
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Date"
+                                    android:id="@+id/endDate"
+                            />
 
                         </LinearLayout>
 
@@ -150,50 +148,49 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
 
                     <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                            android:layout_height="wrap_content">
 
                         <TextView style="@style/CardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Friends"
-                            android:id="@+id/invitationLabel"
-                                android:textSize="16dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Friends"
+                                android:id="@+id/invitationLabel"
                                 android:textColor="@color/colorPrimaryDark"
-                            />
+                        />
 
                         <android.support.v7.widget.RecyclerView
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="55dp"
-                            android:id="@+id/goingRecyclerView"
-                            android:layout_below="@+id/invitationLabel"
-                            android:layout_toLeftOf="@+id/addFriendsButton">
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp"
+                                android:id="@+id/goingRecyclerView"
+                                android:layout_below="@+id/invitationLabel"
+                                android:layout_toLeftOf="@+id/addFriendsButton">
                         </android.support.v7.widget.RecyclerView>
 
                         <TextView style="@style/CardText"
-                            android:paddingBottom="10dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/maxGoingLabel"
-                            android:gravity="center_vertical"
-                            android:text="Max. Number of Participants"
-                            android:layout_below="@+id/goingRecyclerView"
-                            android:layout_toLeftOf="@+id/maxGoingField"/>
+                                android:paddingBottom="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/maxGoingLabel"
+                                android:gravity="center_vertical"
+                                android:text="Max. Number of Participants"
+                                android:layout_below="@+id/goingRecyclerView"
+                                android:layout_toLeftOf="@+id/maxGoingField"/>
 
                         <TextView style="@style/CardText"
-                            android:layout_width="55dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/maxGoingField"
-                            android:layout_below="@+id/addFriendsButton"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignBaseline="@+id/maxGoingLabel"
-                            android:hint="#"
-                            android:inputType="number"/>
+                                android:layout_width="55dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/maxGoingField"
+                                android:layout_below="@+id/addFriendsButton"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignBaseline="@+id/maxGoingLabel"
+                                android:hint="#"
+                                android:inputType="number"/>
 
 
                     </RelativeLayout>
@@ -205,40 +202,39 @@
         </ScrollView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonLinearLayout"
-            android:paddingRight="30dp"
-            android:paddingLeft="30dp"
-            android:paddingBottom="30dp"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonLinearLayout"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
+                android:paddingBottom="30dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true">
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="Going"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Not Going"
                     android:textColor="@color/white"
                     android:background="@drawable/button_shape"
-                android:id="@+id/goingButton"
-                />
+                    android:id="@+id/declineButton"
+            />
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="Not Going"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Going"
                     android:textColor="@color/white"
-                    android:background="@drawable/button_shape"
-
-                android:id="@+id/notGoingButton"
-                />
+                    android:background="@drawable/button_shape_green"
+                    android:id="@+id/goingButton"
+            />
 
         </LinearLayout>
 

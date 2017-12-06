@@ -9,17 +9,22 @@
                 android:id="@+id/toolbar_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
             <include layout = "@layout/layout_top_toolbar" />
             <include layout = "@layout/layout_toolbar_search" />
-
         </FrameLayout>
+
+        <TextView style = "@style/CardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/addFriendsLabel"
+                android:text="Currently Selected"
+                android:layout_below="@id/toolbar_container"/>
 
         <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
                 android:padding="5dp"
                 android:layout_height="65dp"
                 android:id="@+id/addUserRecyclerView"
-                android:layout_below="@id/toolbar_container">
+                android:layout_below="@id/addFriendsLabel">
         </android.support.v7.widget.RecyclerView>
 
         <View

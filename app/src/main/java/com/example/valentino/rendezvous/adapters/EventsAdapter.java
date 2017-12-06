@@ -1,5 +1,6 @@
 package com.example.valentino.rendezvous.adapters;
 
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,6 +79,7 @@ public class EventsAdapter extends RecyclerView.Adapter {
         public EventsViewHolder(View itemView) {
             super(itemView);
             eventNameField = (TextView) itemView.findViewById(R.id.eventname);
+            eventNameField.setPaintFlags(eventNameField.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             eventLocationField = (TextView) itemView.findViewById(R.id.eventlocation);
             eventTimeField = (TextView) itemView.findViewById(R.id.eventtime);
         }

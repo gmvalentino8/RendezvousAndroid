@@ -38,7 +38,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Event Overview"
-                                android:textSize="16dp"
                                 android:textColor="@color/colorPrimaryDark"
                         />
 
@@ -107,39 +106,56 @@
                         <TextView style="@style/CardText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
+                                android:layout_marginRight="16dp"
                                 android:gravity="center"
                                 android:text="Start"
-                                android:layout_marginRight="16dp"
                                 android:id="@+id/startLabel"
                                 android:layout_below="@+id/dateAndTimeTitle"
                         />
 
+                        <ImageView android:layout_width="25dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/startDateIcon"
+                                android:src="@drawable/ic_calendar"
+                                android:layout_below="@id/dateAndTimeTitle"
+                                android:layout_toRightOf="@+id/startLabel"
+                                android:tint="@color/colorAccent"
+                            />
 
-                        <LinearLayout android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/startLinearLayout"
-                                android:layout_below="@+id/dateAndTimeTitle"
-                                android:layout_toRightOf="@+id/startLabel">
 
                             <EditText style="@style/CardText"
-                                    android:layout_width="0dp"
+                                    android:layout_width="120dp"
                                     android:layout_height="40dp"
-                                    android:layout_weight="3"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginRight="4dp"
                                     android:hint="Date"
                                     android:id="@+id/startDate"
+                                    android:layout_below="@id/dateAndTimeTitle"
+                                    android:layout_toRightOf="@id/startDateIcon"
+                                    android:layout_toLeftOf="@+id/startTimeIcon"
                             />
+
+
+                        <ImageView android:layout_width="25dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/startTimeIcon"
+                                android:src="@drawable/ic_time"
+                                android:layout_below="@id/dateAndTimeTitle"
+                                android:layout_toLeftOf="@+id/startTime"
+                                android:tint="@color/colorAccent"
+                        />
 
                             <EditText style="@style/CardText"
-                                    android:layout_width="0dp"
+                                    android:layout_width="80dp"
                                     android:layout_height="40dp"
-                                    android:layout_weight="2"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginRight="8dp"
                                     android:hint="Time"
                                     android:id="@+id/startTime"
+                                    android:layout_below="@+id/dateAndTimeTitle"
+                                    android:layout_alignParentRight="true"
                             />
-
-                        </LinearLayout>
-
-
+                        
                         <TextView style="@style/CardText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
@@ -149,29 +165,48 @@
                                 android:layout_below="@+id/startLabel"
                         />
 
-                        <LinearLayout android:paddingBottom="10dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/startLinearLayout"
-                                android:layout_alignStart="@+id/startLinearLayout">
+                        <ImageView android:layout_width="25dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/endDateIcon"
+                                android:src="@drawable/ic_calendar"
+                                android:layout_below="@id/startLabel"
+                                android:layout_alignLeft="@+id/startDateIcon"
+                                android:tint="@color/colorAccent"
+                        />
 
-                            <EditText style="@style/CardText"
-                                    android:layout_width="0dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="3"
-                                    android:hint="Date"
-                                    android:id="@+id/endDate"
-                            />
 
-                            <EditText style="@style/CardText"
-                                    android:layout_width="0dp"
-                                    android:layout_height="40dp"
-                                    android:layout_weight="2"
-                                    android:hint="Time"
-                                    android:id="@+id/endTime"
-                            />
+                        <EditText style="@style/CardText"
+                                android:layout_width="120dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginRight="4dp"
+                                android:hint="Date"
+                                android:id="@+id/endDate"
+                                android:layout_below="@id/startLabel"
+                                android:layout_toRightOf="@id/endDateIcon"
+                                android:layout_toLeftOf="@+id/endTimeIcon"
+                        />
 
-                        </LinearLayout>
+
+                        <ImageView android:layout_width="25dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/endTimeIcon"
+                                android:src="@drawable/ic_time"
+                                android:layout_below="@id/startLabel"
+                                android:layout_toLeftOf="@+id/endTime"
+                                android:tint="@color/colorAccent"
+                        />
+
+                        <EditText style="@style/CardText"
+                                android:layout_width="80dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginRight="8dp"
+                                android:hint="Time"
+                                android:id="@+id/endTime"
+                                android:layout_below="@+id/startLabel"
+                                android:layout_alignParentRight="true"
+                        />
 
 
                     </RelativeLayout>
@@ -191,7 +226,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="Friends"
                                 android:id="@+id/invitationLabel"
-                                android:textSize="16dp"
                                 android:textColor="@color/colorPrimaryDark"
                         />
 
@@ -215,7 +249,7 @@
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:id="@+id/addFriendsButton"
-                                    android:background="@drawable/ic_add_black"
+                                    android:background="@drawable/ic_add"
                                     android:layout_centerInParent="true"
                             />
 

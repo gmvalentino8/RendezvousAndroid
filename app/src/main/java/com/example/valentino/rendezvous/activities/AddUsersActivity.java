@@ -153,11 +153,15 @@ public class AddUsersActivity extends AppCompatActivity implements View.OnClickL
 	    if (!displaySet.contains(user)) {
 		displayList.add(user);
 		displaySet.add(user);
-		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_check_black);
+		ImageView icon = ((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage));
+		icon.setImageResource(R.drawable.ic_check_black);
+		icon.setColorFilter(getApplicationContext().getResources().getColor(R.color.green));
 	    } else {
 		displayList.remove(user);
 		displaySet.remove(user);
-		((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage)).setImageResource(R.drawable.ic_add_black);
+		ImageView icon = ((ImageView) selectRecyclerView.findContainingViewHolder(view).itemView.findViewById(R.id.addIndicatorImage));
+		icon.setImageResource(R.drawable.ic_add_black);
+		icon.setColorFilter(getApplicationContext().getResources().getColor(R.color.colorAccent));
 	    }
 	    displayAdapter.updateAddUserList(displayList);
 	}

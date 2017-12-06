@@ -16,7 +16,7 @@
                 android:src="@drawable/ic_profile"
                 app:civ_border_width="2dp"
                 app:civ_border_color="@color/colorAccent"
-            />
+        />
 
 
         <TextView
@@ -33,7 +33,8 @@
                 android:id="@+id/addIndicatorImage"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_add_black"/>
+                android:src="@drawable/ic_add_black"
+                android:tint="@color/colorAccent"/>
 
     </RelativeLayout>
 

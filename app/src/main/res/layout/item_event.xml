@@ -1,52 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
-    android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="4dp">
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="4dp">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        app:cardUseCompatPadding = "true"
-        app:cardElevation = "2dp"
-        android:layout_marginRight="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            app:cardUseCompatPadding = "true"
+            app:cardElevation = "2dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <TextView style="@style/EventTitle"
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:text="Event Name"
-
-                android:id="@+id/eventname"
-                />
+                    android:layout_width="275dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:text="Event Name"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:id="@+id/eventname"
+            />
 
             <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/ic_events"
-                android:visibility="invisible"/>
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/ic_events"
+                    android:visibility="invisible"/>
 
-            <TextView style="@style/CardText"
-                android:layout_width="275dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/eventtime"
-                android:text="Event Time"
-                android:layout_below="@id/eventname"/>
 
-            <TextView style="@style/CardText"
-                android:layout_width="275dp"
-                android:layout_marginBottom="10dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/eventlocation"
-                android:text="Event Location"
-                android:layout_below="@id/eventtime"/>
+            <ImageView android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:paddingLeft="16dp"
+                    android:id="@+id/timeIcon"
+                    android:src="@drawable/ic_time"
+                    android:tint="@color/colorAccent"
+                    android:layout_below="@+id/eventname"/>
+
+            <TextView style="@style/EventCardText"
+                    android:layout_width="275dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:paddingLeft="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/eventtime"
+                    android:text="Event Time"
+                    android:layout_below="@id/eventname"
+                    android:layout_toRightOf="@+id/timeIcon"/>
+
+            <ImageView android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:paddingLeft="16dp"
+                    android:id="@+id/locationIcon"
+                    android:layout_below="@+id/eventtime"
+                    android:src="@drawable/ic_location"
+                    android:tint="@color/colorAccent"/>
+
+
+            <TextView style="@style/EventCardText"
+                    android:layout_width="275dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32dp"
+                    android:paddingLeft="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:id="@+id/eventlocation"
+                    android:text="Event Location"
+                    android:layout_below="@id/eventtime"
+                    android:layout_toRightOf="@+id/locationIcon"/>
+
+
 
         </RelativeLayout>
 

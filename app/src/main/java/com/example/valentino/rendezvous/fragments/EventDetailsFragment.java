@@ -11,12 +11,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.valentino.rendezvous.R;
 import com.example.valentino.rendezvous.adapters.AddUserAdapter;
+import com.example.valentino.rendezvous.dao.EventDAO;
 import com.example.valentino.rendezvous.dao.UserDAO;
 import com.example.valentino.rendezvous.listeners.UserListener;
 import com.example.valentino.rendezvous.models.Event;
@@ -27,7 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.List;
 
-public class EventDetailsFragment extends Fragment {
+public class EventDetailsFragment extends Fragment implements View.OnClickListener {
 
     Event event;
 
@@ -42,17 +44,19 @@ public class EventDetailsFragment extends Fragment {
     TextView endDateField;
     TextView maxUsersField;
     Switch privateEventSwitch;
+    Button goingButton;
+    Button declineButton;
 
     public EventDetailsFragment() {
-	// Required empty public constructor
+        // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	if (getArguments() != null) {
-	    event = (Event) getArguments().getSerializable("Event");
-	}
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            event = (Event) getArguments().getSerializable("Event");
+        }
 
         UserDAO
             .getFriendsFromIDList(event.getUsers().keySet(), new UserListener() {
@@ -67,7 +71,7 @@ public class EventDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			     Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Event Details");
 
         View view = inflater.inflate(R.layout.fragment_event_details, container, false);
@@ -97,7 +101,27 @@ public class EventDetailsFragment extends Fragment {
         goingRecyclerView.setLayoutManager(goingLayoutManager);
         goingRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        goingButton = (Button) view.findViewById(R.id.goingButton);
+        goingButton.setOnClickListener(this);
+        declineButton = (Button) view.findViewById(R.id.declineButton);
+        declineButton.setOnClickListener(this);
+
         return view;
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.goingButton:
+                EventDAO.setEventGoing(event.getId());
+                getActivity().getSupportFragmentManager().popBackStack();
+                break;
+            case R.id.declineButton:
+                EventDAO.setEventDecline(event.getId());
+                getActivity().getSupportFragmentManager().popBackStack();
+                break;
+        }
+    }
+
 
 }

@@ -77,7 +77,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	fbLoginButton.setOnClickListener(this);
 	firebaseAuth = FirebaseAuth.getInstance();
 	loginManager = LoginManager.getInstance();
-        loginManager.setLoginBehavior(LoginBehavior.WEB_ONLY);
         loginManager.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 	    @Override
 	    public void onSuccess(LoginResult loginResult) {

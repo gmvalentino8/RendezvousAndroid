@@ -39,7 +39,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Event Overview"
-                                android:textSize="16dp"
                                 android:textColor="@color/colorPrimaryDark"
                         />
                         <EditText style="@style/CardText"
@@ -97,7 +96,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Date &amp; Time"
-                                android:textSize="16dp"
                                 android:textColor="@color/colorPrimaryDark"
                         />
                         <LinearLayout
@@ -174,7 +172,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Location"
-                                android:textSize="16dp"
                                 android:textColor="@color/colorPrimaryDark"/>
 
                         <LinearLayout

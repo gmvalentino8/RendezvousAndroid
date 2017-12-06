@@ -13,14 +13,20 @@
     <style name="CardTitle">
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="EventTitle">
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="EventCardText" parent="Base.TextAppearance.AppCompat.Body1">
         <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">5dp</item>
         <item name="android:textColor">@color/common_google_signin_btn_text_light</item>
     </style>
 
